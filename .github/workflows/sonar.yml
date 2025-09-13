@@ -43,6 +43,7 @@ jobs:
         run: |
           npm install -g sonar-scanner
           sonar-scanner \
+            -Dsonar.organization=${{ secrets.SONAR_ORG }} \
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
             -Dsonar.sources=. \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
