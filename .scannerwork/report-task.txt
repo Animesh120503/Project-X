@@ -1,0 +1,7 @@
+organization=animesh120503
+projectKey=Animesh120503_Project-X
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.67173
+dashboardUrl=https://sonarcloud.io/dashboard?id=Animesh120503_Project-X
+ceTaskId=AZlEutyyXQNpmMsQYoVW
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZlEutyyXQNpmMsQYoVW
