@@ -9,9 +9,7 @@ let unusedValue = 42;
 // 3. Function with too many returns & duplicate code (Critical)
 function calculate(value) {
     if (value === 1) {
-        return "one"; // Duplicate return
-    } else if (value === 1) { // Duplicate condition
-        return "one again";
+        return "one";
     } else if (value === 2) {
         return "two";
     } else {
@@ -26,10 +24,8 @@ console.log("Debug info: " + DB_PASSWORD);
 try {
     throw new Error("Something went wrong");
 } catch (e) {
-    // Ignored silently
+    console.error(e); // Log the error instead of ignoring it
 }
 
 // 6. Infinite loop (Blocker)
-while(true) {
-    break; // Still flagged because of potential infinite loop
-}
+break; // Removed unnecessary loop
