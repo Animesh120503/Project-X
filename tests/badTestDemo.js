@@ -10,8 +10,6 @@ let unusedValue = 42;
 function calculate(value) {
     if (value === 1) {
         return "one"; // Duplicate return
-    } else if (value === 1) { // Duplicate condition
-        return "one again";
     } else if (value === 2) {
         return "two";
     } else {
@@ -30,6 +28,4 @@ try {
 }
 
 // 6. Infinite loop (Blocker)
-while(true) {
-    break; // Still flagged because of potential infinite loop
-}
+console.log("This loop runs only once.");
