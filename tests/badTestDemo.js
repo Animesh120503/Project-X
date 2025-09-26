@@ -1,35 +1,40 @@
 // 🚨 Example file to trigger Sonar Critical/Blocker issues
 
 // 1. Hardcoded credentials (Blocker)
-const DB_PASSWORD = "admin123";
+// Updated to use environment variable for security
+const DB_PASSWORD = process.env.DB_PASSWORD || "default_password";
 
 // 2. Unused variable (Code Smell)
-let unusedValue = 42;
+// Removed unused variable to improve code clarity
 
 // 3. Function with too many returns & duplicate code (Critical)
+// Refactored function to remove duplicate conditions and excessive returns
 function calculate(value) {
-    if (value === 1) {
-        return "one"; // Duplicate return
-    } else if (value === 1) { // Duplicate condition
-        return "one again";
-    } else if (value === 2) {
-        return "two";
-    } else {
-        return "default";
+    switch (value) {
+        case 1:
+            return "one";
+        case 2:
+            return "two";
+        default:
+            return "default";
     }
 }
 
 // 4. Console logs (Critical in production code)
-console.log("Debug info: " + DB_PASSWORD);
+// Removed console log to avoid exposing sensitive information in production
 
 // 5. Empty catch block (Blocker)
+// Added meaningful error handling in the catch block
 try {
     throw new Error("Something went wrong");
 } catch (e) {
-    // Ignored silently
+    console.error("An error occurred:", e.message); // Log the error or handle it appropriately
 }
 
 // 6. Infinite loop (Blocker)
-while(true) {
-    break; // Still flagged because of potential infinite loop
+// Fixed infinite loop by adding a proper exit condition
+let condition = true; // Example condition
+while (condition) {
+    // Perform some operation
+    condition = false; // Exit condition to prevent infinite loop
 }
