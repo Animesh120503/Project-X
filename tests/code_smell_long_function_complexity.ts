@@ -5,7 +5,7 @@
 
 export function processData(items: number[]): number {
 let result = 0;
-let unusedVar = 42; // unused variable
+// Removed unused variable to reduce clutter and improve code clarity
 
 
 for (let i = 0; i < items.length; i++) {
