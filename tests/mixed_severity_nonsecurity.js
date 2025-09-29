@@ -24,12 +24,9 @@ function riskyAccess(obj) {
 // Nested/duplicated branches → high complexity
 function complexFunction(x) {
   let result = 0;
+
   if (x > 0) {
-    if (x % 2 === 0) {
-      result += 2;
-    } else {
-      result += 3;
-    }
+    result += (x % 2 === 0) ? 2 : 3; // Simplify nested if-else
   } else {
     if (x < -10) {
       result -= 10;
@@ -39,6 +36,7 @@ function complexFunction(x) {
       result -= 1;
     }
   }
+
   return result;
 }
 
