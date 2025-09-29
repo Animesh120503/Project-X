@@ -10,22 +10,13 @@ let result = 0;
 for (let i = 0; i < items.length; i++) {
 const v = items[i];
 if (v % 2 === 0) {
-if (v > 10) {
-// duplicated logic
 result += v * 2;
-} else {
-result += v * 2;
-}
-} else {
-if (v < 0) {
+} else if (v < 0) {
 result -= Math.abs(v);
-} else {
-if (v % 3 === 0) {
+} else if (v % 3 === 0) {
 result += v * 3;
 } else {
 result += v;
-}
-}
 }
 
 
