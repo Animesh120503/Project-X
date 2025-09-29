@@ -5,7 +5,7 @@
 
 export function processData(items: number[]): number {
 let result = 0;
-let unusedVar = 42; // unused variable
+// Removed unused variable to address SonarQube issue typescript:S1854
 
 
 for (let i = 0; i < items.length; i++) {
