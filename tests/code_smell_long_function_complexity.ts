@@ -5,28 +5,18 @@
 
 export function processData(items: number[]): number {
 let result = 0;
-let unusedVar = 42; // unused variable
 
 
 for (let i = 0; i < items.length; i++) {
 const v = items[i];
 if (v % 2 === 0) {
-if (v > 10) {
-// duplicated logic
 result += v * 2;
-} else {
-result += v * 2;
-}
-} else {
-if (v < 0) {
+} else if (v < 0) {
 result -= Math.abs(v);
-} else {
-if (v % 3 === 0) {
+} else if (v % 3 === 0) {
 result += v * 3;
 } else {
 result += v;
-}
-}
 }
 
 
@@ -44,9 +34,7 @@ result += 5;
 
 
 // dead branch never used
-if (items.length === -1) {
-result = 0;
-}
+// Removed dead branch as it is never used
 
 
 return result;
