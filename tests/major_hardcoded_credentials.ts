@@ -4,8 +4,13 @@
 
 
 export class CloudUploader {
-private accessKey = 'AKIAEXAMPLEFAKEKEY';
-private secretKey = 'superSecretPassword123!';
+private readonly accessKey: string;
+private readonly secretKey: string;
+
+constructor(accessKey: string, secretKey: string) {
+    this.accessKey = accessKey;
+    this.secretKey = secretKey;
+} // Refactored to remove hard-coded credentials and mark properties as readonly
 
 
 constructor() {}
