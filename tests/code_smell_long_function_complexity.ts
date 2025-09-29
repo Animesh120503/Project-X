@@ -11,12 +11,7 @@ let result = 0;
 for (let i = 0; i < items.length; i++) {
 const v = items[i];
 if (v % 2 === 0) {
-if (v > 10) {
-// duplicated logic
-result += v * 2;
-} else {
-result += v * 2;
-}
+result += v > 10 ? v * 2 : v * 2; // Simplified duplicated logic
 } else {
 if (v < 0) {
 result -= Math.abs(v);
