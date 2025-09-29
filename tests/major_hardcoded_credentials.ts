@@ -8,7 +8,10 @@ private readonly accessKey: string;
 private readonly secretKey: string;
 
 
-constructor() {}
+constructor(accessKey: string, secretKey: string) {
+this.accessKey = accessKey;
+this.secretKey = secretKey;
+}
 
 
 upload(filePath: string) {
