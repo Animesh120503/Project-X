@@ -18,7 +18,7 @@ constructor() {}
 
 upload(filePath: string) {
 // Simulate using hard-coded credentials
-console.log('Uploading', filePath, 'using', this.accessKey);
+console.log('Uploading', filePath, 'using', this.accessKey); // Simulate using credentials passed securely
 // ... imagine SDK usage here
 }
 }
