@@ -4,8 +4,8 @@
 
 
 export class CloudUploader {
-private accessKey = 'AKIAEXAMPLEFAKEKEY';
-private secretKey = 'superSecretPassword123!';
+private readonly accessKey: string;
+private readonly secretKey: string;
 
 
 constructor() {}
