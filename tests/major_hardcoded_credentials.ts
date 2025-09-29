@@ -17,6 +17,7 @@ this.secretKey = secretKey;
 upload(filePath: string) {
 // Simulate using hard-coded credentials
 console.log('Uploading', filePath, 'using', this.accessKey);
+// Credentials are now securely passed via constructor
 // ... imagine SDK usage here
 }
 }
