@@ -27,13 +27,7 @@ result += v;
 
 // More nested checks to increase complexity
 if (v % 5 === 0) {
-if (v % 7 === 0) {
-result += 7;
-} else if (v % 11 === 0) {
-result += 11;
-} else {
-result += 5;
-}
+result += v % 7 === 0 ? 7 : v % 11 === 0 ? 11 : 5; // Simplified nested checks for multiples of 5, 7, and 11
 }
 }
 
