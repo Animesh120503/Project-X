@@ -34,9 +34,7 @@ result += 5;
 
 
 // dead branch never used
-if (items.length === -1) {
-result = 0;
-}
+// Removed dead branch as it is never used
 
 
 return result;
