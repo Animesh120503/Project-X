@@ -3,8 +3,10 @@
 // 🔴 BLOCKER: Infinite loop (rule javascript:S2189)
 // Sonar considers this a blocker bug
 function infiniteLoop() {
-  while (true) {
-    console.log("Looping forever..."); // Will never exit
+  let counter = 0;
+  while (counter < 10) { // Example end condition
+    console.log("Looping... " + counter);
+    counter++;
   }
 }
 
