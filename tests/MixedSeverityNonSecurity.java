@@ -4,8 +4,10 @@ public class MixedSeverityNonSecurity {
 
     // 🔴 BLOCKER: Infinite loop (Rule: java:S2189)
     public void infiniteLoop() {
-        while (true) {
-            System.out.println("Looping forever...");
+        int counter = 0; // Add a counter to break the loop
+        while (counter < 10) { // Add an end condition
+            LOGGER.info("Looping... " + counter);
+            counter++;
         }
     }
 
