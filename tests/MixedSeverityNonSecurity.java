@@ -23,19 +23,13 @@ public class MixedSeverityNonSecurity {
     public int complexFunction(int x) {
         int result = 0;
         if (x > 0) {
-            if (x % 2 == 0) {
-                result += 2;
-            } else {
-                result += 3;
-            }
+            result += (x % 2 == 0) ? 2 : 3; // Simplified nested conditions
+        } else if (x < -10) {
+            result -= 10;
+        } else if (x < -5) {
+            result -= 5;
         } else {
-            if (x < -10) {
-                result -= 10;
-            } else if (x < -5) {
-                result -= 5;
-            } else {
-                result -= 1;
-            }
+            result -= 1;
         }
         return result;
     }
