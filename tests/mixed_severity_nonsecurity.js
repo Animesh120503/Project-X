@@ -19,13 +19,19 @@ function riskyAccess(obj) {
 function complexFunction(x) {
   let result = 0;
   if (x > 0) {
-    result += (x % 2 === 0) ? 2 : 3; // Simplified nested conditions
-  } else if (x < -10) {
-    result -= 10;
-  } else if (x < -5) {
-    result -= 5;
+    if (x % 2 === 0) {
+      result += 2;
+    } else {
+      result += 3;
+    }
   } else {
-    result -= 1;
+    if (x < -10) {
+      result -= 10;
+    } else if (x < -5) {
+      result -= 5;
+    } else {
+      result -= 1;
+    }
   }
   return result;
 }

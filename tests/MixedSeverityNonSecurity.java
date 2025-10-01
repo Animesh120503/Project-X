@@ -1,38 +1,37 @@
-import java.util.logging.Logger;
+// This Java file is intentionally crafted to trigger different severities (non-security)
 
 public class MixedSeverityNonSecurity {
 
-    private static final Logger logger = Logger.getLogger(MixedSeverityNonSecurity.class.getName());
-
     // 🔴 BLOCKER: Infinite loop (Rule: java:S2189)
     public void infiniteLoop() {
-        int counter = 0; // Add a counter to break the loop
-        while (counter < 10) { // End condition added
-            logger.info("Looping... " + counter);
-            counter++;
+        while (true) {
+            System.out.println("Looping forever...");
         }
     }
 
     // 🟠 CRITICAL: Null dereference (Rule: java:S2259)
     public void riskyAccess(String str) {
-        if (str != null) { // Null check added
-            System.out.println(str.length());
-        } else {
-            logger.warning("Attempted to access length of a null string.");
-        }
+        // Attempt to call method on possibly null object
+        System.out.println(str.length());
     }
 
     // 🟡 MAJOR: High cognitive complexity (Rule: java:S3776)
     public int complexFunction(int x) {
         int result = 0;
         if (x > 0) {
-            result += (x % 2 == 0) ? 2 : 3; // Simplified nested conditions
-        } else if (x < -10) {
-            result -= 10;
-        } else if (x < -5) {
-            result -= 5;
+            if (x % 2 == 0) {
+                result += 2;
+            } else {
+                result += 3;
+            }
         } else {
-            result -= 1;
+            if (x < -10) {
+                result -= 10;
+            } else if (x < -5) {
+                result -= 5;
+            } else {
+                result -= 1;
+            }
         }
         return result;
     }
