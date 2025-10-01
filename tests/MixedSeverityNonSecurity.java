@@ -31,14 +31,12 @@ public class MixedSeverityNonSecurity {
         int result = 0;
         if (x > 0) {
             result += (x % 2 == 0) ? 2 : 3;
+        } else if (x < -10) {
+            result -= 10;
+        } else if (x < -5) {
+            result -= 5;
         } else {
-            if (x < -10) {
-                result -= 10;
-            } else if (x < -5) {
-                result -= 5;
-            } else {
-                result -= 1;
-            }
+            result -= 1;
         }
         return result;
     }
