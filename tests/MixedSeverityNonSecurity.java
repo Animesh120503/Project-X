@@ -1,12 +1,18 @@
+package com.example; // Added a named package to resolve the issue of the file not being in a named package.
+
+import java.util.logging.Logger; // Importing the Logger class.
+
 public class MixedSeverityNonSecurity {
+
+    private static final Logger LOGGER = Logger.getLogger(MixedSeverityNonSecurity.class.getName()); // Replacing System.out with a logger.
 
     public void infiniteLoop() {
         while (true) {
-            System.out.println("Looping forever...");
+            LOGGER.info("Looping forever..."); // Replaced System.out.println with LOGGER.info.
         }
     }
 
     public void riskyAccess(String str) {
-        System.out.println(str.length());
+        LOGGER.info("String length: " + str.length()); // Replaced System.out.println with LOGGER.info.
     }
 }
