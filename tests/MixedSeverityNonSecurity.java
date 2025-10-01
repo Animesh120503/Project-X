@@ -3,9 +3,13 @@
 public class MixedSeverityNonSecurity {
 
     // 🔴 BLOCKER: Infinite loop (Rule: java:S2189)
+    private static final Logger logger = Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+
     public void infiniteLoop() {
-        while (true) {
-            System.out.println("Looping forever...");
+        int counter = 0; // Add a counter to break the loop
+        while (counter < 10) { // End condition added
+            logger.info("Looping... " + counter);
+            counter++;
         }
     }
 
