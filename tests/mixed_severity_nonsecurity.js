@@ -17,21 +17,16 @@ function riskyAccess(obj) {
 // 🟡 MAJOR: Cognitive complexity too high (rule javascript:S3776)
 // Nested/duplicated branches → high complexity
 function complexFunction(x) {
+  // FIX: Simplify the nested conditions to reduce cognitive complexity
   let result = 0;
   if (x > 0) {
-    if (x % 2 === 0) {
-      result += 2;
-    } else {
-      result += 3;
-    }
+    result += (x % 2 === 0) ? 2 : 3;
+  } else if (x < -10) {
+    result -= 10;
+  } else if (x < -5) {
+    result -= 5;
   } else {
-    if (x < -10) {
-      result -= 10;
-    } else if (x < -5) {
-      result -= 5;
-    } else {
-      result -= 1;
-    }
+    result -= 1;
   }
   return result;
 }
