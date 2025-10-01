@@ -9,7 +9,7 @@ function infiniteLoop() {
 
 // CRITICAL: Fixed null dereference by adding a null check (javascript:S2259)
 function riskyAccess(obj) {
-  if (obj && obj.value) { // Added null and undefined check
+  if (obj?.value) { // Replaced null and undefined check with optional chaining for better readability (javascript:S3415)
     return obj.value.toString();
   } else {
     console.warn("Object or value is null/undefined.");
@@ -22,12 +22,8 @@ function complexFunction(x) {
   let result = 0;
   if (x > 0) {
     result += (x % 2 === 0) ? 2 : 3; // Simplified nested if-else
-  } else if (x < -10) {
-    result -= 10;
-  } else if (x < -5) {
-    result -= 5;
   } else {
-    result -= 1;
+    result -= (x < -10) ? 10 : (x < -5) ? 5 : 1; // Combined conditions into a single line to reduce cognitive complexity (javascript:S3776)
   }
   return result;
 }
