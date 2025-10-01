@@ -26,20 +26,15 @@ public class MixedSeverityNonSecurity {
     // 🟡 MAJOR: High cognitive complexity (Rule: java:S3776)
     public int complexFunction(int x) {
         int result = 0;
+        // Fixed: Reduced cognitive complexity by simplifying nested conditions
         if (x > 0) {
-            if (x % 2 == 0) {
-                result += 2;
-            } else {
-                result += 3;
-            }
+            result += (x % 2 == 0) ? 2 : 3;
+        } else if (x < -10) {
+            result -= 10;
+        } else if (x < -5) {
+            result -= 5;
         } else {
-            if (x < -10) {
-                result -= 10;
-            } else if (x < -5) {
-                result -= 5;
-            } else {
-                result -= 1;
-            }
+            result -= 1;
         }
         return result;
     }
