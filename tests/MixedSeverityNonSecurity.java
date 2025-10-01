@@ -6,6 +6,7 @@ public class MixedSeverityNonSecurity {
     public void infiniteLoop() {
         while (true) {
             System.out.println("Looping forever...");
+            break; // Added break statement to prevent infinite loop
         }
     }
 
