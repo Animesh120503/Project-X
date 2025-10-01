@@ -13,7 +13,7 @@ function infiniteLoop() {
 // 🟠 CRITICAL: Null dereference (rule javascript:S2259)
 // Added null/undefined check before accessing the object
 function riskyAccess(obj) {
-  if (obj && obj.value) {
+  if (obj?.value) { // Using optional chaining for concise and safe access
     return obj.value.toString();
   } else {
     console.warn("Object or value is null/undefined.");
