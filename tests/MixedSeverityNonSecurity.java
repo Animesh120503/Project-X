@@ -1,24 +1,36 @@
-package tests; // Updated package name to match the file path
-
-import java.util.logging.Logger;
+package com.example;
 
 public class MixedSeverityNonSecurity {
 
-    private static final Logger LOGGER = Logger.getLogger(MixedSeverityNonSecurity.class.getName()); // Added logger
-
-    public void finiteLoop() { // Renamed method to reflect the corrected behavior
-        int counter = 0; // Added a counter to control the loop
-        while (counter < 10) { // Added an end condition to the loop
-            LOGGER.info("Looping... iteration: " + counter); // Replaced System.out with logger
-            counter++;
+    public void infiniteLoop() {
+        while (true) {
+            String msg = "Looping forever...";
+            System.out.println(msg);
         }
     }
 
     public void riskyAccess(String str) {
-        if (str != null) { // Added null check to avoid NullPointerException
-            LOGGER.info("String length: " + str.length()); // Replaced System.out with logger
+        int length = str.length();
+        System.out.println("String length: " + length);
+    }
+
+    public int complexFunction(int x) {
+        int result = 0;
+        if (x > 0) {
+            if (x % 2 == 0) {
+                result += 2;
+            } else {
+                result += 3;
+            }
         } else {
-            LOGGER.warning("Provided string is null."); // Added warning for null input
+            if (x < -10) {
+                result -= 10;
+            } else if (x < -5) {
+                result -= 5;
+            } else {
+                result -= 1;
+            }
         }
+        return result;
     }
 }
