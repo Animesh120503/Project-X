@@ -3,15 +3,24 @@
 // 🔴 BLOCKER: Infinite loop (rule javascript:S2189)
 // Sonar considers this a blocker bug
 function infiniteLoop() {
-  while (true) {
-    console.log("Looping forever..."); // Will never exit
+  // Fixed: Added an end condition to the loop
+  let counter = 0;
+  while (counter < 10) {
+    console.log("Looping...");
+    counter++;
   }
 }
 
 // 🟠 CRITICAL: Null dereference (rule javascript:S2259)
 // Accessing property of possibly null
 function riskyAccess(obj) {
-  return obj.value.toString(); // obj could be null/undefined
+  // Fixed: Added null/undefined check before accessing the object
+  if (obj && obj.value) {
+    return obj.value.toString();
+  } else {
+    console.warn("Object or value is null/undefined.");
+    return null;
+  }
 }
 
 // 🟡 MAJOR: Cognitive complexity too high (rule javascript:S3776)
