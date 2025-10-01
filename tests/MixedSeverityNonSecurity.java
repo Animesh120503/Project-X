@@ -1,3 +1,5 @@
+package tests;
+
 import java.util.logging.Logger;
 
 public class MixedSeverityNonSecurity {
@@ -16,7 +18,7 @@ public class MixedSeverityNonSecurity {
     // 🟠 CRITICAL: Null dereference (Rule: java:S2259)
     public void riskyAccess(String str) {
         if (str != null) { // Null check added
-            System.out.println(str.length());
+            logger.info("String length: " + str.length()); // Use logger instead of System.out
         } else {
             logger.warning("Attempted to access length of a null string.");
         }
@@ -42,7 +44,7 @@ public class MixedSeverityNonSecurity {
         MixedSeverityNonSecurity test = new MixedSeverityNonSecurity();
         // ⚠️ Do not call infiniteLoop(), or program will hang
         // test.infiniteLoop();
-        test.riskyAccess(null); // Will throw at runtime
-        System.out.println(test.complexFunction(7));
+        test.riskyAccess(null); // Will not throw at runtime due to null check
+        logger.info("Complex function result: " + test.complexFunction(7)); // Use logger instead of System.out
     }
 }
