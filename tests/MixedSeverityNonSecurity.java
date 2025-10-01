@@ -1,48 +1,47 @@
-package tests; // MAJOR: Added a named package to resolve java:S1220
-
-import java.util.logging.Logger; // Importing Logger for proper logging
+// This Java file is intentionally crafted to trigger different severities (non-security)
 
 public class MixedSeverityNonSecurity {
 
-    private static final Logger LOGGER = Logger.getLogger(MixedSeverityNonSecurity.class.getName()); // MAJOR: Replacing System.out with Logger (java:S106)
-
-    // BLOCKER: Fixed infinite loop by adding an end condition (java:S2189)
+    // 🔴 BLOCKER: Infinite loop (Rule: java:S2189)
     public void infiniteLoop() {
-        int counter = 0; // Added a counter to break the loop
-        while (counter < 10) { // End condition to prevent infinite loop
-            LOGGER.info("Looping... " + counter);
-            counter++;
+        while (true) {
+            System.out.println("Looping forever...");
         }
     }
 
-    // CRITICAL: Fixed null dereference by adding a null check (java:S2259)
+    // 🟠 CRITICAL: Null dereference (Rule: java:S2259)
     public void riskyAccess(String str) {
-        if (str != null) { // Added null check
-            LOGGER.info("String length: " + str.length());
-        } else {
-            LOGGER.warning("String is null, cannot access length.");
-        }
+        // Attempt to call method on possibly null object
+        System.out.println(str.length());
     }
 
-    // MAJOR: High cognitive complexity reduced (java:S3776)
+    // 🟡 MAJOR: High cognitive complexity (Rule: java:S3776)
     public int complexFunction(int x) {
         int result = 0;
         if (x > 0) {
-            result += (x % 2 == 0) ? 2 : 3; // Simplified nested if-else
-        } else if (x < -10) {
-            result -= 10;
-        } else if (x < -5) {
-            result -= 5;
+            if (x % 2 == 0) {
+                result += 2;
+            } else {
+                result += 3;
+            }
         } else {
-            result -= 1;
+            if (x < -10) {
+                result -= 10;
+            } else if (x < -5) {
+                result -= 5;
+            } else {
+                result -= 1;
+            }
         }
         return result;
     }
 
+    // Main method to illustrate usage (Sonar will analyze code without needing to run)
     public static void main(String[] args) {
         MixedSeverityNonSecurity test = new MixedSeverityNonSecurity();
-        test.infiniteLoop();
-        test.riskyAccess(null);
-        LOGGER.info("Complex function result: " + test.complexFunction(7));
+        // ⚠️ Do not call infiniteLoop(), or program will hang
+        // test.infiniteLoop();
+        test.riskyAccess(null); // Will throw at runtime
+        System.out.println(test.complexFunction(7));
     }
 }
