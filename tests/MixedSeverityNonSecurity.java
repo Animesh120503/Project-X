@@ -1,10 +1,10 @@
-// This Java file is intentionally crafted to trigger different severities (non-security)
+import java.util.logging.Logger;
 
 public class MixedSeverityNonSecurity {
 
-    // 🔴 BLOCKER: Infinite loop (Rule: java:S2189)
     private static final Logger logger = Logger.getLogger(MixedSeverityNonSecurity.class.getName());
 
+    // 🔴 BLOCKER: Infinite loop (Rule: java:S2189)
     public void infiniteLoop() {
         int counter = 0; // Add a counter to break the loop
         while (counter < 10) { // End condition added
@@ -15,8 +15,11 @@ public class MixedSeverityNonSecurity {
 
     // 🟠 CRITICAL: Null dereference (Rule: java:S2259)
     public void riskyAccess(String str) {
-        // Attempt to call method on possibly null object
-        System.out.println(str.length());
+        if (str != null) { // Null check added
+            System.out.println(str.length());
+        } else {
+            logger.warning("Attempted to access length of a null string.");
+        }
     }
 
     // 🟡 MAJOR: High cognitive complexity (Rule: java:S3776)
