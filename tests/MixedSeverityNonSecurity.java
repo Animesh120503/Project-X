@@ -15,7 +15,12 @@ public class MixedSeverityNonSecurity {
     // 🟠 CRITICAL: Null dereference (Rule: java:S2259)
     public void riskyAccess(String str) {
         // Attempt to call method on possibly null object
-        System.out.println(str.length());
+        // Fixed: Added null check before accessing the object
+        if (str != null) {
+            logger.info("String length: " + str.length());
+        } else {
+            logger.warning("String is null, cannot access length.");
+        }
     }
 
     // 🟡 MAJOR: High cognitive complexity (Rule: java:S3776)
