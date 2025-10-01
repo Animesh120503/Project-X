@@ -11,7 +11,12 @@ function infiniteLoop() {
 // 🟠 CRITICAL: Null dereference (rule javascript:S2259)
 // Accessing property of possibly null
 function riskyAccess(obj) {
-  return obj.value.toString(); // obj could be null/undefined
+  if (obj && obj.value) {
+    return obj.value.toString();
+  } else {
+    console.warn("Object or value is null/undefined.");
+    return null;
+  } // obj could be null/undefined
 }
 
 // 🟡 MAJOR: Cognitive complexity too high (rule javascript:S3776)
