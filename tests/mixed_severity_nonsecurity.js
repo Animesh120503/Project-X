@@ -1,43 +1,38 @@
-// This file is intentionally bad to trigger different severities (non-security)
-
-// 🔴 BLOCKER: Infinite loop (rule javascript:S2189)
-// Sonar considers this a blocker bug
+// BLOCKER: Fixed infinite loop by adding an end condition (javascript:S2189)
 function infiniteLoop() {
-  while (true) {
-    console.log("Looping forever..."); // Will never exit
+  let counter = 0; // Added a counter to break the loop
+  while (counter < 10) { // End condition to prevent infinite loop
+    console.log(`Looping... ${counter}`);
+    counter++;
   }
 }
 
-// 🟠 CRITICAL: Null dereference (rule javascript:S2259)
-// Accessing property of possibly null
+// CRITICAL: Fixed null dereference by adding a null check (javascript:S2259)
 function riskyAccess(obj) {
-  return obj.value.toString(); // obj could be null/undefined
+  if (obj && obj.value) { // Added null and undefined check
+    return obj.value.toString();
+  } else {
+    console.warn("Object or value is null/undefined.");
+    return null;
+  }
 }
 
-// 🟡 MAJOR: Cognitive complexity too high (rule javascript:S3776)
-// Nested/duplicated branches → high complexity
+// MAJOR: Reduced cognitive complexity (javascript:S3776)
 function complexFunction(x) {
   let result = 0;
   if (x > 0) {
-    if (x % 2 === 0) {
-      result += 2;
-    } else {
-      result += 3;
-    }
+    result += (x % 2 === 0) ? 2 : 3; // Simplified nested if-else
+  } else if (x < -10) {
+    result -= 10;
+  } else if (x < -5) {
+    result -= 5;
   } else {
-    if (x < -10) {
-      result -= 10;
-    } else if (x < -5) {
-      result -= 5;
-    } else {
-      result -= 1;
-    }
+    result -= 1;
   }
   return result;
 }
 
 // Example calls
-// ⚠️ These are just to execute functions, not needed for Sonar analysis
-// infiniteLoop();   // Don't call or program will hang
-console.log(riskyAccess(null));  // Will throw at runtime
+infiniteLoop();
+console.log(riskyAccess(null));
 console.log(complexFunction(7));
