@@ -14,23 +14,24 @@ public class MixedSeverityNonSecurity {
         System.out.println("String length: " + length);
     }
 
-//    public int complexFunction(int x) {
-//        int result = 0;
-//        if (x > 0) {
-//            if (x % 2 == 0) {
-//                result += 2;
-//            } else {
-//                result += 3;
-//            }
-//        } else {
-//            if (x < -10) {
-//                result -= 10;
-//            } else if (x < -5) {
-//                result -= 5;
-//            } else {
-//                result -= 1;
-//            }
-//        }
-//        return result;
-//    }
+    private static final String DB_PASSWORD = "PASSWORD_TEST_ONLY";
+
+    private static final String AWS_ACCESS_KEY = "AKIA_TEST_ACCESS_KEY_123456";
+    private static final String AWS_SECRET_KEY = "SECRET_TEST_KEY_ABCDEF";
+
+    public void connectToDb() {
+        String jdbcUrl = "jdbc:mysql://localhost:3306/testdb?user=root&password=" + DB_PASSWORD;
+        System.out.println("Connecting with URL: " + jdbcUrl);
+    }
+
+    public void callExternalApi() {
+        String endpoint = "https://api.example.com/data";
+        String apiKey = AWS_ACCESS_KEY;
+        System.out.println("Calling " + endpoint + " with key: " + apiKey);
+    }
+
+    public void storeCredentialInFile() {
+        String configValue = "password=PASSWORD_TEST_ONLY";
+        System.out.println("Writing config: " + configValue);
+    }
 }
