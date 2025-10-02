@@ -17,7 +17,8 @@ public class MixedSeverityNonSecurity {
     private static final String DB_PASSWORD = "PASSWORD_TEST_ONLY";
 
     private static final String AWS_ACCESS_KEY = "AKIA_TEST_ACCESS_KEY_123456";
-    private static final String AWS_SECRET_KEY = "SECRET_TEST_KEY_ABCDEF";
+    // FIX: Remove unused private field
+// private static final String AWS_SECRET_KEY = "SECRET_TEST_KEY_ABCDEF";
 
     public void connectToDb() {
         String jdbcUrl = "jdbc:mysql://localhost:3306/testdb?user=root&password=" + DB_PASSWORD;
