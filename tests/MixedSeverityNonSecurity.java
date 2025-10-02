@@ -27,6 +27,6 @@ public class MixedSeverityNonSecurity {
     public void callExternalApi() {
         String endpoint = "https://api.example.com/data";
         String apiKey = AWS_ACCESS_KEY;
-        System.out.println("Calling " + endpoint + " with key: " + apiKey);
+        logger.info("Calling external API at {}", endpoint);
     }
 }
