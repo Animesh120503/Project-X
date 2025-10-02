@@ -1,4 +1,4 @@
-package com.example;
+package wrongPackage;
 
 public class MixedSeverityNonSecurity {
 
