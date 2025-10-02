@@ -21,7 +21,7 @@ public class MixedSeverityNonSecurity {
 
     public void connectToDb() {
         String jdbcUrl = "jdbc:mysql://localhost:3306/testdb?user=root&password=" + DB_PASSWORD;
-        System.out.println("Connecting with URL: " + jdbcUrl);
+        logger.info("Connecting to the database...");
     }
 
     public void callExternalApi() {
