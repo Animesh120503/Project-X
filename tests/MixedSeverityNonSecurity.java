@@ -14,23 +14,23 @@ public class MixedSeverityNonSecurity {
         System.out.println("String length: " + length);
     }
 
-    public int complexFunction(int x) {
-        int result = 0;
-        if (x > 0) {
-            if (x % 2 == 0) {
-                result += 2;
-            } else {
-                result += 3;
-            }
-        } else {
-            if (x < -10) {
-                result -= 10;
-            } else if (x < -5) {
-                result -= 5;
-            } else {
-                result -= 1;
-            }
-        }
-        return result;
-    }
+//    public int complexFunction(int x) {
+//        int result = 0;
+//        if (x > 0) {
+//            if (x % 2 == 0) {
+//                result += 2;
+//            } else {
+//                result += 3;
+//            }
+//        } else {
+//            if (x < -10) {
+//                result -= 10;
+//            } else if (x < -5) {
+//                result -= 5;
+//            } else {
+//                result -= 1;
+//            }
+//        }
+//        return result;
+//    }
 }
