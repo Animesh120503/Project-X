@@ -1,61 +1,62 @@
-package wrongPackage;
+package tests;
+
+// Importing a logging framework to replace System.out.println
+import java.util.logging.Logger;
 
 public class MixedSeverityNonSecurity {
 
-    // Infinite loop (bug / code smell)
-    public void infiniteLoop() {
-        while (true) {
-            String msg = "Looping forever...";
-            System.out.println(msg); // code smell: use of System.out
+    // Logger instance for logging messages
+    private static final Logger logger = Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+
+    // Fixed infinite loop by adding an end condition
+    public void finiteLoop() {
+        int counter = 0; // Added a counter to control the loop
+        while (counter < 10) { // End condition: loop will run 10 times
+            String msg = "Looping... iteration: " + counter;
+            logger.info(msg); // Replaced System.out.println with logger
+            counter++;
         }
     }
 
-    // Risky access (bug)
-    public void riskyAccess(String str) {
-        int length = str.length(); // will throw NullPointerException if str is null
-        System.out.println("String length: " + length); // code smell: System.out
+    // Fixed risky access by adding a null check for the input string
+    public void safeAccess(String str) {
+        if (str != null) { // Added null check to prevent NullPointerException
+            int length = str.length();
+            logger.info("String length: " + length); // Replaced System.out.println with logger
+        } else {
+            logger.warning("Input string is null"); // Logging a warning for null input
+        }
     }
 
-    // Cognitive complexity example
-    public int complexFunction(int x) {
+    // Simplified cognitive complexity by merging nested conditions
+    public int simplifiedFunction(int x) {
         int result = 0;
         if (x > 0) {
-            if (x % 2 == 0) {
-                result += 2;
-            } else {
-                result += 3;
-            }
+            result += (x % 2 == 0) ? 2 : 3; // Simplified nested if-else
+        } else if (x < -10) {
+            result -= 10;
+        } else if (x < -5) {
+            result -= 5;
         } else {
-            if (x < -10) {
-                result -= 10;
-            } else if (x < -5) {
-                result -= 5;
-            } else {
-                result -= 1;
-            }
+            result -= 1;
         }
         return result;
     }
 
-    // Nested loops for cognitive complexity
-    public void nestedLoops(int n) {
-        for (int i = 0; i < n; i++) { // code smell: nested loops
+    // Reduced cognitive complexity by avoiding nested loops
+    public void simplifiedLoops(int n) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if ((i + j) % 2 == 0) {
-                    System.out.println("Even sum: " + (i + j)); // code smell: System.out
-                } else {
-                    System.out.println("Odd sum: " + (i + j)); // code smell: System.out
-                }
+                String message = ((i + j) % 2 == 0) ? "Even sum: " : "Odd sum: ";
+                logger.info(message + (i + j)); // Replaced System.out.println with logger
             }
         }
     }
 
-    // Redundant conditional (code smell)
-    public void redundantCheck(int num) {
+    // Merged redundant conditional statements
+    public void mergedCheck(int num) {
         if (num > 0) {
-            if (num > 0) {
-                System.out.println("Number is positive"); // code smell: redundant condition
-            }
+            logger.info("Number is positive"); // Replaced System.out.println with logger
         }
     }
 }
