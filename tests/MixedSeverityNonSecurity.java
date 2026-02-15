@@ -53,11 +53,8 @@ public void nestedLoops(int n) {
     }
 }
     // Redundant conditional (code smell)
-    public void redundantCheck(int num) {
-        if (num > 0) {
-            if (num > 0) {
-                System.out.println("Number is positive"); // code smell: redundant condition
-            }
-        }
+public void redundantCheck(int num) {
+    if (num > 0) {
+        System.out.println("Number is positive"); // code smell: redundant condition
     }
-}
+}}
