@@ -43,12 +43,12 @@ public class MixedSeverityNonSecurity {
     public void nestedLoops(int n) {
         for (int i = 0; i < n; i++) { // code smell: nested loops
             for (int j = 0; j < n; j++) {
+                private static final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+
                 if ((i + j) % 2 == 0) {
-                    java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName())
-                        .info("Even sum: " + (i + j));
+                    LOGGER.info("Even sum: " + (i + j));
                 } else {
-                    java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName())
-                        .info("Odd sum: " + (i + j));
+                    LOGGER.info("Odd sum: " + (i + j));
                 }
             }
         }
