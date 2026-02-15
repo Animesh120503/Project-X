@@ -56,7 +56,8 @@ for (int j = 0; j < n; j++) {
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
-            System.out.println("Number is positive"); // code smell: redundant condition
+            final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+            logger.info("Number is positive");
         }
     }
 }
