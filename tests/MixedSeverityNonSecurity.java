@@ -6,7 +6,7 @@ public class MixedSeverityNonSecurity {
     public void infiniteLoop() {
 for (int i = 0; i < 10; i++) {
     String msg = "Looping forever...";
-    System.out.println(msg); // code smell: use of System.out
+    java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info(msg);
 }    }
 
     // Risky access (bug)
