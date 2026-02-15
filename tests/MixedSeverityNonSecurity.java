@@ -7,7 +7,7 @@ public class MixedSeverityNonSecurity {
         int i = 0;
         while (i < 10) {
             String msg = "Looping forever...";
-            System.out.println(msg); // code smell: use of System.out
+            java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info(msg);
             i++;
         }
     }
