@@ -11,10 +11,15 @@ public void infiniteLoop() {
     }
 }
     // Risky access (bug)
+    private static final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+    
     public void riskyAccess(String str) {
-        int length = str.length(); // will throw NullPointerException if str is null
-        java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
-        logger.info("String length: " + length);
+        if (str == null) {
+            LOGGER.info("String is null");
+            return;
+        }
+        int length = str.length();
+        LOGGER.info("String length: " + length);
     }
 
     // Cognitive complexity example
