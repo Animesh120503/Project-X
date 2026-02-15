@@ -3,15 +3,14 @@ package wrongPackage;
 public class MixedSeverityNonSecurity {
 
     // Infinite loop (bug / code smell)
-    public void infiniteLoop() {
-        int i = 0;
-        while (i < 10) {
-            String msg = "Looping forever...";
-            System.out.println(msg); // code smell: use of System.out
-            i++;
-        }
+public void infiniteLoop() {
+    int i = 0;
+    while (i < 10) {
+        String msg = "Looping forever...";
+        java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info(msg);
+        i++;
     }
-
+}
     // Risky access (bug)
     public void riskyAccess(String str) {
         int length = str.length(); // will throw NullPointerException if str is null
