@@ -4,9 +4,10 @@ public class MixedSeverityNonSecurity {
 
     // Infinite loop (bug / code smell)
 public void infiniteLoop() {
+    java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
     for (int i = 0; i < 10; i++) {
         String msg = "Looping... (iteration " + i + ")";
-        System.out.println(msg); // consider replacing with a logger
+        logger.info(msg);
     }
 }
     // Risky access (bug)
