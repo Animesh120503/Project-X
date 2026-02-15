@@ -1,4 +1,4 @@
-package wrongPackage;
+package tests;
 
 public class MixedSeverityNonSecurity {
 
