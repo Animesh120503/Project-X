@@ -37,18 +37,18 @@ public void infiniteLoop() {
     }
 
     // Nested loops for cognitive complexity
-    public void nestedLoops(int n) {
-        for (int i = 0; i < n; i++) { // code smell: nested loops
-            for (int j = 0; j < n; j++) {
-                if ((i + j) % 2 == 0) {
-                    System.out.println("Even sum: " + (i + j)); // code smell: System.out
-                } else {
-                    System.out.println("Odd sum: " + (i + j)); // code smell: System.out
-                }
+public void nestedLoops(int n) {
+    java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+    for (int i = 0; i < n; i++) { // code smell: nested loops
+        for (int j = 0; j < n; j++) {
+            if ((i + j) % 2 == 0) {
+                logger.info("Even sum: " + (i + j));
+            } else {
+                logger.info("Odd sum: " + (i + j));
             }
         }
     }
-
+}
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
