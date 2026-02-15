@@ -1,7 +1,5 @@
-package wrongPackage;
-
+package tests;
 public class MixedSeverityNonSecurity {
-
     // Infinite loop (bug / code smell)
     public void infiniteLoop() {
 int i = 0;
