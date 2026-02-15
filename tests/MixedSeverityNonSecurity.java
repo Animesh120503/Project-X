@@ -43,14 +43,14 @@ public class MixedSeverityNonSecurity {
     public void nestedLoops(int n) {
         final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
         for (int i = 0; i < n; i++) { // code smell: nested loops
-            for (int j = 0; j < n; j++) {
-                if ((i + j) % 2 == 0) {
-                    logger.info("Even sum: " + (i + j));
-                } else {
-                    logger.info("Odd sum: " + (i + j));
-                }
-            }
-        }
+for (int j = 0; j < n; j++) {
+    int sum = i + j;
+    if (sum % 2 == 0) {
+        logger.log(java.util.logging.Level.INFO, "Even sum: {0}", sum);
+    } else {
+        logger.log(java.util.logging.Level.INFO, "Odd sum: {0}", sum);
+    }
+}        }
     }
 
     // Redundant conditional (code smell)
