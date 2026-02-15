@@ -52,9 +52,7 @@ for (int i = 0; i < 10; i++) {
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
-            if (num > 0) {
-                java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("Number is positive");
-            }
+            java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("Number is positive");
         }
     }
 }
