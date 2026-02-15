@@ -12,7 +12,8 @@ public void infiniteLoop() {
     // Risky access (bug)
     public void riskyAccess(String str) {
         int length = str.length(); // will throw NullPointerException if str is null
-        System.out.println("String length: " + length); // code smell: System.out
+        java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+        logger.info("String length: " + length);
     }
 
     // Cognitive complexity example
