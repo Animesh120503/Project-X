@@ -39,14 +39,15 @@ while (i < 10) {
     }
 
     // Nested loops for cognitive complexity
+private static final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+
 public void nestedLoops(int n) {
-    java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
     for (int i = 0; i < n; i++) { // code smell: nested loops
         for (int j = 0; j < n; j++) {
             if ((i + j) % 2 == 0) {
-                logger.info("Even sum: " + (i + j));
+                LOGGER.info("Even sum: " + (i + j));
             } else {
-                logger.info("Odd sum: " + (i + j));
+                LOGGER.info("Odd sum: " + (i + j));
             }
         }
     }
