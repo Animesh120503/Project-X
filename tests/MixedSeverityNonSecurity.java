@@ -44,9 +44,9 @@ while (i < 10) {
         for (int i = 0; i < n; i++) { // code smell: nested loops
             for (int j = 0; j < n; j++) {
                 if ((i + j) % 2 == 0) {
-                    LOGGER.info("Even sum: " + (i + j));
+                    LOGGER.log(java.util.logging.Level.INFO, "Even sum: {0}", i + j);
                 } else {
-                    LOGGER.info("Odd sum: " + (i + j));
+                    LOGGER.log(java.util.logging.Level.INFO, "Odd sum: {0}", i + j);
                 }
             }
         }
