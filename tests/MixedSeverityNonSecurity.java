@@ -1,30 +1,27 @@
-package wrongPackage;
+package tests;
 
 public class MixedSeverityNonSecurity {
 
     // Infinite loop (bug / code smell)
-    public void infiniteLoop() {
-        while (true) {
-            String msg = "Looping forever...";
-            System.out.println(msg); // code smell: use of System.out
-        }
+public void infiniteLoop() {
+    for (int i = 0; i < 10; i++) {
+        String msg = "Looping forever...";
+        java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info(msg);
     }
-
+}
     // Risky access (bug)
     public void riskyAccess(String str) {
         int length = str.length(); // will throw NullPointerException if str is null
-        System.out.println("String length: " + length); // code smell: System.out
+        java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("String length: " + length);
     }
 
     // Cognitive complexity example
     public int complexFunction(int x) {
         int result = 0;
-        if (x > 0) {
-            if (x % 2 == 0) {
-                result += 2;
-            } else {
-                result += 3;
-            }
+        if (x > 0 && x % 2 == 0) {
+            result += 2;
+        } else if (x > 0) {
+            result += 3;
         } else {
             if (x < -10) {
                 result -= 10;
@@ -42,9 +39,9 @@ public class MixedSeverityNonSecurity {
         for (int i = 0; i < n; i++) { // code smell: nested loops
             for (int j = 0; j < n; j++) {
                 if ((i + j) % 2 == 0) {
-                    System.out.println("Even sum: " + (i + j)); // code smell: System.out
+                    java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("Even sum: " + (i + j));
                 } else {
-                    System.out.println("Odd sum: " + (i + j)); // code smell: System.out
+                    java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("Odd sum: " + (i + j));
                 }
             }
         }
@@ -53,9 +50,7 @@ public class MixedSeverityNonSecurity {
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
-            if (num > 0) {
-                System.out.println("Number is positive"); // code smell: redundant condition
-            }
+            java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("Number is positive");
         }
     }
 }
