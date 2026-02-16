@@ -55,7 +55,7 @@ while (i < 10) {
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
-            System.out.println("Number is positive"); // code smell: redundant condition
+            LOGGER.log(java.util.logging.Level.INFO, "Number is positive"); // code smell: redundant condition
         }
     }
 }
