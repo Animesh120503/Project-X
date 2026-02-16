@@ -14,7 +14,7 @@ while (i < 10) {
     // Risky access (bug)
     public void riskyAccess(String str) {
         int length = str.length(); // will throw NullPointerException if str is null
-        System.out.println("String length: " + length); // code smell: System.out
+        LOGGER.info("String length: " + length);
     }
 
     // Cognitive complexity example
