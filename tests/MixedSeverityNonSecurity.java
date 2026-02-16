@@ -1,19 +1,20 @@
-package wrongPackage;
+package tests;
 
 public class MixedSeverityNonSecurity {
 
     // Infinite loop (bug / code smell)
     public void infiniteLoop() {
-        while (true) {
-            String msg = "Looping forever...";
-            System.out.println(msg); // code smell: use of System.out
-        }
-    }
+int i = 0;
+while (i < 10) {
+    String msg = "Looping forever...";
+    LOGGER.info(msg); // replaced System.out with logger
+    i++;
+}    }
 
     // Risky access (bug)
     public void riskyAccess(String str) {
         int length = str.length(); // will throw NullPointerException if str is null
-        System.out.println("String length: " + length); // code smell: System.out
+        LOGGER.log(java.util.logging.Level.INFO, "String length: {0}", length);
     }
 
     // Cognitive complexity example
@@ -38,13 +39,14 @@ public class MixedSeverityNonSecurity {
     }
 
     // Nested loops for cognitive complexity
+    private static final java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
     public void nestedLoops(int n) {
         for (int i = 0; i < n; i++) { // code smell: nested loops
             for (int j = 0; j < n; j++) {
                 if ((i + j) % 2 == 0) {
-                    System.out.println("Even sum: " + (i + j)); // code smell: System.out
+                    LOGGER.log(java.util.logging.Level.INFO, "Even sum: {0}", i + j);
                 } else {
-                    System.out.println("Odd sum: " + (i + j)); // code smell: System.out
+                    LOGGER.log(java.util.logging.Level.INFO, "Odd sum: {0}", i + j);
                 }
             }
         }
@@ -53,9 +55,7 @@ public class MixedSeverityNonSecurity {
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
-            if (num > 0) {
-                System.out.println("Number is positive"); // code smell: redundant condition
-            }
+            LOGGER.log(java.util.logging.Level.INFO, "Number is positive"); // code smell: redundant condition
         }
     }
 }
