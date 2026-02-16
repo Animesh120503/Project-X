@@ -18,12 +18,10 @@ public void infiniteLoop() {
     // Cognitive complexity example
     public int complexFunction(int x) {
         int result = 0;
-        if (x > 0) {
-            if (x % 2 == 0) {
-                result += 2;
-            } else {
-                result += 3;
-            }
+        if (x > 0 && x % 2 == 0) {
+            result += 2;
+        } else if (x > 0) {
+            result += 3;
         } else {
             if (x < -10) {
                 result -= 10;
