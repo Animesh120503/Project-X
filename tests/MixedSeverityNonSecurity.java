@@ -39,18 +39,21 @@ while (i < 10) {
     }
 
     // Nested loops for cognitive complexity
-    public void nestedLoops(int n) {
-        for (int i = 0; i < n; i++) { // code smell: nested loops
-            for (int j = 0; j < n; j++) {
-                if ((i + j) % 2 == 0) {
-                    System.out.println("Even sum: " + (i + j)); // code smell: System.out
-                } else {
-                    System.out.println("Odd sum: " + (i + j)); // code smell: System.out
-                }
+private static final java.util.logging.Logger LOGGER =
+        java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+
+public void nestedLoops(int n) {
+    for (int i = 0; i < n; i++) { // code smell: nested loops
+        for (int j = 0; j < n; j++) {
+            int sum = i + j;
+            if (sum % 2 == 0) {
+                LOGGER.info("Even sum: " + sum);
+            } else {
+                LOGGER.info("Odd sum: " + sum);
             }
         }
     }
-
+}
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
