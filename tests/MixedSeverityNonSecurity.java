@@ -13,7 +13,11 @@ while (i < 10) {
 
     // Risky access (bug)
     public void riskyAccess(String str) {
-        int length = str.length(); // will throw NullPointerException if str is null
+        if (str == null) {
+            LOGGER.warning("Received null string");
+            return;
+        }
+        int length = str.length();
         LOGGER.info("String length: " + length);
     }
 
