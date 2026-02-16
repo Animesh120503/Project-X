@@ -57,9 +57,7 @@ public void nestedLoops(int n) {
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
         if (num > 0) {
-            if (num > 0) {
-                LOGGER.info("Number is positive");
-            }
+            LOGGER.info("Number is positive");
         }
     }
 }
