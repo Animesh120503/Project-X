@@ -4,7 +4,9 @@ public class MixedSeverityNonSecurity {
 
     // Infinite loop (bug / code smell)
     public void infiniteLoop() {
-        while (true) {
+        // Add a termination condition to avoid an infinite loop.
+        final int MAX_ITERATIONS = 1000;
+        for (int i = 0; i < MAX_ITERATIONS; i++) {
             String msg = "Looping forever...";
             System.out.println(msg); // code smell: use of System.out
         }
