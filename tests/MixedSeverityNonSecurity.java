@@ -55,9 +55,10 @@ public class MixedSeverityNonSecurity {
 
     // Redundant conditional (code smell)
     public void redundantCheck(int num) {
+        final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
         if (num > 0) {
             if (num > 0) {
-                System.out.println("Number is positive"); // code smell: redundant condition
+                logger.info("Number is positive");
             }
         }
     }
