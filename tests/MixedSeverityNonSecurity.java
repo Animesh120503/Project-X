@@ -15,8 +15,13 @@ public class MixedSeverityNonSecurity {
 
     // Risky access (bug)
     public void riskyAccess(String str) {
-        int length = str.length(); // will throw NullPointerException if str is null
-        java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName()).info("String length: " + length);
+        final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
+        if (str == null) {
+            logger.warning("Received null string");
+            return;
+        }
+        int length = str.length();
+        logger.info("String length: " + length);
     }
 
     // Cognitive complexity example
