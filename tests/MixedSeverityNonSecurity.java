@@ -41,12 +41,13 @@ public class MixedSeverityNonSecurity {
 
     // Nested loops for cognitive complexity
     public void nestedLoops(int n) {
+        final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
         for (int i = 0; i < n; i++) { // code smell: nested loops
             for (int j = 0; j < n; j++) {
                 if ((i + j) % 2 == 0) {
-                    System.out.println("Even sum: " + (i + j)); // code smell: System.out
+                    logger.info("Even sum: " + (i + j));
                 } else {
-                    System.out.println("Odd sum: " + (i + j)); // code smell: System.out
+                    logger.info("Odd sum: " + (i + j));
                 }
             }
         }
