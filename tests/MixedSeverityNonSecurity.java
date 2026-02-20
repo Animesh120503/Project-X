@@ -57,9 +57,7 @@ public class MixedSeverityNonSecurity {
     public void redundantCheck(int num) {
         final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MixedSeverityNonSecurity.class.getName());
         if (num > 0) {
-            if (num > 0) {
-                logger.info("Number is positive");
-            }
+            logger.info("Number is positive");
         }
     }
 }
